@@ -125,7 +125,7 @@ namespace EscolaASC.Repository
         public async Task<Aluno> GetAlunoByTurmaAsync(string NomeTurma, bool includeTurma=false)
         {
             IQueryable<Aluno>query =_context.Alunos
-            .Include(c => c.Provas );
+            ;
             if (includeTurma)
             {
                 query=query

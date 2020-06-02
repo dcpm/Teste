@@ -8,7 +8,7 @@ namespace EscolaASC.Domain
 
         public string  NomeAluno { get; set; }
 
-        public List<Prova> Provas { get; set; }
+        
 
         //public List<Turma> Turmas { get; set; }
 

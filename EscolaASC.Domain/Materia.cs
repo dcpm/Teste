@@ -8,19 +8,13 @@ namespace EscolaASC.Domain
 
         public string NomeMateria { get; set; }
 
-        
+    
 
-        public string Situacao { get; set; }
-
-        public List<Prova> Provas { get; set; }
+    
 
         
     
 
-
-
-
-        public int Media { get; set; }
 
     }
 }

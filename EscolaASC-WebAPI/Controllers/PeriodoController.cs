@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using EscolaASC.Repository;
 using System.Threading.Tasks;
 using EscolaASC.Domain;
+using EscolaASC_WebAPI.DTOs;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace EscolaASC_WebAPI.Controllers
 {
@@ -57,18 +60,104 @@ namespace EscolaASC_WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Periodo model)
+        public  async Task<IActionResult> Post( Configuration request )
         {
             try
             {
-                _repo.Add(model);
-                if (await _repo.SaveChangesAsync())
+                // qtd aluno  criar os aluno, criar as turmas e associar eles a um periodo
+               
+                var acumulaPeso=0;
+                var listaMateria= new List<Materia>();
+
+                //Criação de Matérias na quantidade recebida
+
+                for (int m = 0; m < request.QuantidadeMateria; m++)
+                    {
+                        Materia materia = new Materia();
+                        materia.NomeMateria="";
+                        listaMateria.Add(materia);
+                        
+                    }
+
+                //Criação de Turma na quantidade recebida
+
+                for (int i = 0; i < request.QuantidadeTurma; i++)
                 {
-                    return Created($"api/periodo/{model.Periodoid}", model);
+
+                    Turma turma = new Turma();
+
+                    turma.NomeTurma="";
+                    // Pegar aleatoriamente uma materia de listaMateria
+                    turma.Materia= null;
+                    
+                    
+
+                    //Criação de Alunos na quantidade recebida
+
+                    for (int j = 0; j < request.QuantidadeAluno; j++)
+                    {
+                        Aluno aluno = new Aluno();
+                        TurmaAluno turmaAluno =  new TurmaAluno();
+                        aluno.NomeAluno="";
+                        
+                        
+                            //cria 3 provas pro aluno
+                        for (int k = 1; k < 4 ; k++)
+                        {
+                            Prova prova = new Prova();
+                            prova.Nota=0;
+                            prova.Peso=0;
+
+                            acumulaPeso +=prova.Peso;
+
+                            turmaAluno.Provas.Add(prova);
+                            
+                            
+                        }
+                        //  média = ((Nota1*Peso1)+(Nota2*Peso2)+(Nota3*Peso3))/acumulaPeso
+
+                        turmaAluno.Media= ((turmaAluno.Provas.First().Nota)*(turmaAluno.Provas.First().Peso)
+                        +(turmaAluno.Provas.Skip(1).First().Nota)*(turmaAluno.Provas.Skip(1).First().Peso)
+                        +(turmaAluno.Provas.Skip(2).First().Nota)*(turmaAluno.Provas.Skip(2).First().Peso))
+                        /acumulaPeso;
+
+                        
+
+                        
+
+                        
+                        //testa se ele vai pra prova final
+
+                        if (turmaAluno.Media>4 && turmaAluno.Media<6)
+                        {
+                            Prova provaFinal= new Prova();
+                            provaFinal.Nota=0;
+                            provaFinal.Peso=1;
+
+                            turmaAluno.Media = (turmaAluno.Media+provaFinal.Nota)/2;
+                        }
+
+                        if (turmaAluno.Media <4)
+                        {
+                            aluno.Situacao="Reprovado";
+                        }
+                        if (turmaAluno.Media >6)
+                        {
+                            aluno.Situacao="Aprovado";
+                        }
 
 
-                };
-                
+                        
+                    }
+
+
+                    
+                }
+
+
+
+
+            
                 
             }
             catch (System.Exception)
@@ -76,7 +165,7 @@ namespace EscolaASC_WebAPI.Controllers
                 throw;
                 
             }
-            return BadRequest();
+            return Ok();
 
             
         }
