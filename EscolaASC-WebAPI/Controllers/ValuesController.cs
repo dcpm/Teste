@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EscolaASC_WebAPI.Data;
-using EscolaASC_WebAPI.Model;
+using EscolaASC.Repository;
+//using EscolaASC_WebAPI.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
