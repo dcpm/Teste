@@ -1,0 +1,12 @@
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\bin\Debug\netstandard2.0\EscolaASC.Repository.deps.json
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\bin\Debug\netstandard2.0\EscolaASC.Repository.dll
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\bin\Debug\netstandard2.0\EscolaASC.Repository.pdb
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\bin\Debug\netstandard2.0\EscolaASC.Domain.dll
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\bin\Debug\netstandard2.0\EscolaASC.Domain.pdb
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.csprojAssemblyReference.cache
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.csproj.CoreCompileInputs.cache
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.AssemblyInfoInputs.cache
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.AssemblyInfo.cs
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.csproj.CopyComplete
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.dll
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Repository\obj\Debug\netstandard2.0\EscolaASC.Repository.pdb

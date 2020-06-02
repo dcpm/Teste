@@ -24,6 +24,8 @@
     ".NETCoreApp,Version=v2.2": {
       "EscolaASC-WebAPI/1.0.0": {
         "dependencies": {
+          "EscolaASC.Domain": "1.0.0",
+          "EscolaASC.Repository": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "2.2.0",
@@ -189,6 +191,27 @@
         },
         "compile": {
           "lib/netstandard1.1/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+        }
+      },
+      "EscolaASC.Domain/1.0.0": {
+        "runtime": {
+          "EscolaASC.Domain.dll": {}
+        },
+        "compile": {
+          "EscolaASC.Domain.dll": {}
+        }
+      },
+      "EscolaASC.Repository/1.0.0": {
+        "dependencies": {
+          "EscolaASC.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "2.2.0"
+        },
+        "runtime": {
+          "EscolaASC.Repository.dll": {}
+        },
+        "compile": {
+          "EscolaASC.Repository.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3455,6 +3478,16 @@
       "sha512": "sha512-6q2qXc7GA11ZFh3ATFj9LjzF0HfMtlN1hDi8QATSoML4sR+inquXdionvyX8nUegutOAGXjKDp+8MziaUV5Pkg==",
       "path": "sqlitepclraw.provider.e_sqlite3.netstandard11/1.1.11",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.netstandard11.1.1.11.nupkg.sha512"
+    },
+    "EscolaASC.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EscolaASC.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

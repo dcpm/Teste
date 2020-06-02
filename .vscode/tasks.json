@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/EscolaASC-WebAPI/EscolaASC-WebAPI.csproj",
+                "${workspaceFolder}/Teste/EscolaASC-WebAPI/EscolaASC-WebAPI.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/EscolaASC-WebAPI/EscolaASC-WebAPI.csproj",
+                "${workspaceFolder}/Teste/EscolaASC-WebAPI/EscolaASC-WebAPI.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/EscolaASC-WebAPI/EscolaASC-WebAPI.csproj",
+                "${workspaceFolder}/Teste/EscolaASC-WebAPI/EscolaASC-WebAPI.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

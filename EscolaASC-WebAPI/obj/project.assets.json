@@ -4597,6 +4597,31 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "EscolaASC.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/EscolaASC.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EscolaASC.Domain.dll": {}
+        }
+      },
+      "EscolaASC.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "EscolaASC.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.2.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "2.2.0"
+        },
+        "compile": {
+          "bin/placeholder/EscolaASC.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EscolaASC.Repository.dll": {}
+        }
       }
     }
   },
@@ -12405,10 +12430,22 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "EscolaASC.Domain/1.0.0": {
+      "type": "project",
+      "path": "../EscolaASC.Domain/EscolaASC.Domain.csproj",
+      "msbuildProject": "../EscolaASC.Domain/EscolaASC.Domain.csproj"
+    },
+    "EscolaASC.Repository/1.0.0": {
+      "type": "project",
+      "path": "../EscolaASC.Repository/EscolaASC.Repository.csproj",
+      "msbuildProject": "../EscolaASC.Repository/EscolaASC.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "EscolaASC.Domain >= 1.0.0",
+      "EscolaASC.Repository >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 2.2.0",
@@ -12422,11 +12459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC-WebAPI\\EscolaASC-WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC-WebAPI\\EscolaASC-WebAPI.csproj",
       "projectName": "EscolaASC-WebAPI",
-      "projectPath": "c:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC-WebAPI\\EscolaASC-WebAPI.csproj",
+      "projectPath": "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC-WebAPI\\EscolaASC-WebAPI.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC-WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC-WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12442,7 +12479,14 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC.Domain\\EscolaASC.Domain.csproj": {
+              "projectPath": "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC.Domain\\EscolaASC.Domain.csproj"
+            },
+            "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC.Repository\\EscolaASC.Repository.csproj": {
+              "projectPath": "C:\\Users\\danie\\Desktop\\ASC TESTE\\EscolaASC.Repository\\EscolaASC.Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

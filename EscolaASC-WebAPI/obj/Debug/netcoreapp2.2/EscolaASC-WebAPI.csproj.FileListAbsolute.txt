@@ -12,3 +12,8 @@ C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\obj\Debug\netcoreapp2.2\Escola
 C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\obj\Debug\netcoreapp2.2\EscolaASC-WebAPI.RazorTargetAssemblyInfo.cache
 C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\obj\Debug\netcoreapp2.2\EscolaASC-WebAPI.dll
 C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\obj\Debug\netcoreapp2.2\EscolaASC-WebAPI.pdb
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\bin\Debug\netcoreapp2.2\EscolaASC.Domain.dll
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\bin\Debug\netcoreapp2.2\EscolaASC.Repository.dll
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\bin\Debug\netcoreapp2.2\EscolaASC.Domain.pdb
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\bin\Debug\netcoreapp2.2\EscolaASC.Repository.pdb
+C:\Users\danie\Desktop\ASC TESTE\EscolaASC-WebAPI\obj\Debug\netcoreapp2.2\EscolaASC-WebAPI.csproj.CopyComplete
