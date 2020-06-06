@@ -6,6 +6,8 @@ namespace EscolaASC.Domain
 
         public decimal Nota { get; set; }
 
+        public int OrdemProva { get; set; }
+
 
         public int Peso { get; set; }
 

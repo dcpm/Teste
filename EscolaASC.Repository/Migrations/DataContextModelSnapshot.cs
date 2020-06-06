@@ -35,13 +35,9 @@ namespace EscolaASC.Repository.Migrations
                     b.Property<int>("Materiaid")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Media");
-
                     b.Property<string>("NomeMateria");
 
                     b.Property<int?>("Periodoid");
-
-                    b.Property<string>("Situacao");
 
                     b.HasKey("Materiaid");
 
@@ -71,19 +67,19 @@ namespace EscolaASC.Repository.Migrations
                     b.Property<int>("Provaid")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("Alunoid");
-
-                    b.Property<int?>("Materiaid");
-
                     b.Property<decimal>("Nota");
+
+                    b.Property<int>("OrdemProva");
 
                     b.Property<int>("Peso");
 
+                    b.Property<int?>("TurmaAlunoAlunoid");
+
+                    b.Property<int?>("TurmaAlunoTurmaid");
+
                     b.HasKey("Provaid");
 
-                    b.HasIndex("Alunoid");
-
-                    b.HasIndex("Materiaid");
+                    b.HasIndex("TurmaAlunoTurmaid", "TurmaAlunoAlunoid");
 
                     b.ToTable("Prova");
                 });
@@ -116,6 +112,8 @@ namespace EscolaASC.Repository.Migrations
 
                     b.Property<int>("Alunoid");
 
+                    b.Property<decimal>("Media");
+
                     b.HasKey("Turmaid", "Alunoid");
 
                     b.HasIndex("Alunoid");
@@ -127,29 +125,29 @@ namespace EscolaASC.Repository.Migrations
                 {
                     b.HasOne("EscolaASC.Domain.Periodo")
                         .WithMany("Materias")
-                        .HasForeignKey("Periodoid");
+                        .HasForeignKey("Periodoid")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EscolaASC.Domain.Prova", b =>
                 {
-                    b.HasOne("EscolaASC.Domain.Aluno")
+                    b.HasOne("EscolaASC.Domain.TurmaAluno")
                         .WithMany("Provas")
-                        .HasForeignKey("Alunoid");
-
-                    b.HasOne("EscolaASC.Domain.Materia")
-                        .WithMany("Provas")
-                        .HasForeignKey("Materiaid");
+                        .HasForeignKey("TurmaAlunoTurmaid", "TurmaAlunoAlunoid")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EscolaASC.Domain.Turma", b =>
                 {
                     b.HasOne("EscolaASC.Domain.Materia", "Materia")
                         .WithMany()
-                        .HasForeignKey("Materiaid");
+                        .HasForeignKey("Materiaid")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("EscolaASC.Domain.Periodo")
                         .WithMany("Turmas")
-                        .HasForeignKey("Periodoid");
+                        .HasForeignKey("Periodoid")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EscolaASC.Domain.TurmaAluno", b =>

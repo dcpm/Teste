@@ -1,3 +1,4 @@
+using System.Linq;
 using EscolaASC.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +18,14 @@ namespace EscolaASC.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TurmaAluno>().HasKey(PE => new {PE.Turmaid, PE.Alunoid});
+            var cascadeFKs = modelBuilder.Model.GetEntityTypes()
+        .SelectMany(t => t.GetForeignKeys())
+        .Where(fk => !fk.IsOwnership && fk.DeleteBehavior != DeleteBehavior.Cascade);
+
+            foreach (var fk in cascadeFKs)
+                fk.DeleteBehavior = DeleteBehavior.Cascade;
+
+            modelBuilder.Entity<TurmaAluno>().HasKey(PE => new { PE.Turmaid, PE.Alunoid });
 
         }
 

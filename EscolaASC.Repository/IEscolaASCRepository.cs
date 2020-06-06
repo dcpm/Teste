@@ -28,6 +28,7 @@ namespace EscolaASC.Repository
         //Aluno
 
         Task<Aluno> GetAlunoByTurmaAsync(string NomeTurma, bool includeTurma);
+        Task<Aluno> GetAlunoByIdAsync(int Alunoid, bool includeTurma);
 
         //Materia
 

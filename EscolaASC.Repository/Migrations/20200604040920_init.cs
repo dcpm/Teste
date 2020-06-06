@@ -42,8 +42,6 @@ namespace EscolaASC.Repository.Migrations
                     Materiaid = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     NomeMateria = table.Column<string>(nullable: true),
-                    Situacao = table.Column<string>(nullable: true),
-                    Media = table.Column<int>(nullable: false),
                     Periodoid = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -54,35 +52,7 @@ namespace EscolaASC.Repository.Migrations
                         column: x => x.Periodoid,
                         principalTable: "Periodos",
                         principalColumn: "Periodoid",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Prova",
-                columns: table => new
-                {
-                    Provaid = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nota = table.Column<decimal>(nullable: false),
-                    Peso = table.Column<int>(nullable: false),
-                    Alunoid = table.Column<int>(nullable: true),
-                    Materiaid = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Prova", x => x.Provaid);
-                    table.ForeignKey(
-                        name: "FK_Prova_Alunos_Alunoid",
-                        column: x => x.Alunoid,
-                        principalTable: "Alunos",
-                        principalColumn: "Alunoid",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Prova_Materias_Materiaid",
-                        column: x => x.Materiaid,
-                        principalTable: "Materias",
-                        principalColumn: "Materiaid",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -104,13 +74,13 @@ namespace EscolaASC.Repository.Migrations
                         column: x => x.Materiaid,
                         principalTable: "Materias",
                         principalColumn: "Materiaid",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Turmas_Periodos_Periodoid",
                         column: x => x.Periodoid,
                         principalTable: "Periodos",
                         principalColumn: "Periodoid",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,7 +88,8 @@ namespace EscolaASC.Repository.Migrations
                 columns: table => new
                 {
                     Turmaid = table.Column<int>(nullable: false),
-                    Alunoid = table.Column<int>(nullable: false)
+                    Alunoid = table.Column<int>(nullable: false),
+                    Media = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -137,20 +108,38 @@ namespace EscolaASC.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Prova",
+                columns: table => new
+                {
+                    Provaid = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nota = table.Column<decimal>(nullable: false),
+                    OrdemProva = table.Column<int>(nullable: false),
+                    Peso = table.Column<int>(nullable: false),
+                    TurmaAlunoAlunoid = table.Column<int>(nullable: true),
+                    TurmaAlunoTurmaid = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Prova", x => x.Provaid);
+                    table.ForeignKey(
+                        name: "FK_Prova_TurmaAluno_TurmaAlunoTurmaid_TurmaAlunoAlunoid",
+                        columns: x => new { x.TurmaAlunoTurmaid, x.TurmaAlunoAlunoid },
+                        principalTable: "TurmaAluno",
+                        principalColumns: new[] { "Turmaid", "Alunoid" },
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Materias_Periodoid",
                 table: "Materias",
                 column: "Periodoid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prova_Alunoid",
+                name: "IX_Prova_TurmaAlunoTurmaid_TurmaAlunoAlunoid",
                 table: "Prova",
-                column: "Alunoid");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Prova_Materiaid",
-                table: "Prova",
-                column: "Materiaid");
+                columns: new[] { "TurmaAlunoTurmaid", "TurmaAlunoAlunoid" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TurmaAluno_Alunoid",

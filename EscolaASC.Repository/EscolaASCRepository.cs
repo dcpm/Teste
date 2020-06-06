@@ -70,7 +70,7 @@ namespace EscolaASC.Repository
             .Include(c => c.Materias )
             .Include(c => c.Turmas);
             
-            query=query.Where(c => c.Periodoid==Periodoid);
+            query=query.AsNoTracking().Where(c => c.Periodoid==Periodoid);
             
 
             return await query.FirstOrDefaultAsync();
@@ -99,6 +99,7 @@ namespace EscolaASC.Repository
                 .Include(ta => ta.TurmaAlunos)
                 .ThenInclude(a => a.Aluno);
             }
+            query=query.AsNoTracking();
             
 
             return await query.ToArrayAsync();
@@ -114,13 +115,41 @@ namespace EscolaASC.Repository
                 .Include(ta => ta.TurmaAlunos)
                 .ThenInclude(a => a.Aluno);
             }
-            query=query.Where(c => c.Turmaid==Turmaid);
+            query=query.AsNoTracking().Where(c => c.Turmaid==Turmaid);
             
 
             return await query.FirstOrDefaultAsync();
         }
 
         //ALUNOS
+
+        public async Task<Aluno> GetAlunoByIdAsync(int Alunoid, bool includeTurma=false)
+        {
+            IQueryable<Aluno>query =_context.Alunos
+            ;
+            if (includeTurma)
+            {
+                query=query
+                .Include(ta => ta.TurmaAlunos)
+                .ThenInclude(a => a.Provas);
+
+                query=query
+                .Include(ta => ta.TurmaAlunos)
+                .ThenInclude(a => a.Turma);
+
+                
+                
+            }
+            query=query.AsNoTracking().Where(c => c.Alunoid==Alunoid);
+            
+
+            return await query.FirstOrDefaultAsync();
+        }
+
+
+
+
+        //ACHO Q NÃO VOU USAR
 
         public async Task<Aluno> GetAlunoByTurmaAsync(string NomeTurma, bool includeTurma=false)
         {

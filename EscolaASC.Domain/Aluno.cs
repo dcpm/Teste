@@ -4,6 +4,11 @@ namespace EscolaASC.Domain
 {
     public class Aluno
     {
+        public Aluno()
+        {
+            this.TurmaAlunos=new List<TurmaAluno>();
+            
+        }
         public int Alunoid { get; set; }
 
         public string  NomeAluno { get; set; }
