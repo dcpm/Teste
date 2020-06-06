@@ -77,7 +77,8 @@ namespace EscolaASC_WebAPI.Controllers
                 for (int m = 0; m < request.QuantidadeMaterias; m++)
                     {
                         Materia materia = new Materia();
-                        materia.NomeMateria="";
+                        var mt=(char)random.Next('A','Z');
+                        materia.NomeMateria=mt.ToString();
                         listaMateria.Add(materia);
                         
                     }
@@ -90,7 +91,9 @@ namespace EscolaASC_WebAPI.Controllers
 
                     Turma turma = new Turma();
 
-                    turma.NomeTurma="";
+                    var nt=(char)random.Next('A','Z');
+
+                    turma.NomeTurma=nt.ToString();
                     // Pegar aleatoriamente uma materia de listaMateria
                     
                     var m=random.Next(0,request.QuantidadeMaterias-1);
@@ -107,8 +110,9 @@ namespace EscolaASC_WebAPI.Controllers
                     {
                         Aluno aluno = new Aluno();
                         TurmaAluno turmaAluno =  new TurmaAluno();
+                        var na=(char)random.Next('A','Z');
                         
-                        aluno.NomeAluno="";
+                        aluno.NomeAluno=na.ToString();
 
                         var acumulaPeso=0;
                         
