@@ -1,0 +1,54 @@
+
+<mat-table [dataSource]="dataSource" matSort>
+  
+    <ng-container matColumnDef="nomePeriodo">
+
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Período
+        </mat-header-cell>
+        <mat-cell *matCellDef="let periodo" class="nome-periodo">
+            {{periodo.nomePeriodo}}
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="verPeriodo">
+
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Ver Período
+        </mat-header-cell>
+        <mat-cell *matCellDef="let periodo" class="nome-periodo">
+            <button mat-raised-button ><a routerLink="/consulta-periodo">
+                Ver
+            </a>
+            </button>
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="novo-periodo">
+
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Ver Período
+        </mat-header-cell>
+        <mat-cell *matCellDef="let periodo" class="cadastra-periodo">
+            <button mat-raised-button ><a routerLink="/novo-periodo">
+                Cadastrar
+            </a>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    
+
+    
+
+    
+
+   
+  
+    <mat-header-row *matHeaderRowDef="colunas" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+  </mat-table>
+
+
+
+    
+  
+

@@ -1,0 +1,54 @@
+<div class="container">
+    <form [formGroup]="formPeriodo" novalidate>
+      &nbsp;
+  
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Código do Período"
+          formControlName="NomePeriodo"
+        />
+      </mat-form-field>
+      &nbsp;
+  
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Quantas turmas?"
+          formControlName="QuantidadeTurmas"
+        />
+      </mat-form-field>
+      &nbsp;
+  
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Quantas matérias?"
+          formControlName="QuantidadeMaterias"
+        />
+      </mat-form-field>
+  
+      &nbsp;
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Quantas alunos?"
+          formControlName="QuantidadeAlunos"
+        />
+      </mat-form-field>
+  
+      &nbsp;
+      
+  
+      <button
+        mat-raised-button
+        color="primary"
+        class="button-css"
+        (click)="enviarPeriodo()"
+      >
+        Simular
+      </button>
+    </form>
+  </div>
+  
+  

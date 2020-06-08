@@ -1,0 +1,67 @@
+<mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Aluno
+      </mat-header-cell>
+      <mat-cell *matCellDef="let aluno" class="nome-aluno">
+        {{ aluno.nome }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="p1">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Prova 1
+        </mat-header-cell>
+        <mat-cell *matCellDef="let aluno" class="prova1">
+          {{ aluno.p1 }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="p2">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Prova 2
+        </mat-header-cell>
+        <mat-cell *matCellDef="let aluno" class="prova2">
+          {{ aluno.p2 }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="p3">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Prova 3
+        </mat-header-cell>
+        <mat-cell *matCellDef="let aluno" class="prova3">
+          {{ aluno.p3 }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="pf">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Prova Final
+        </mat-header-cell>
+        <mat-cell *matCellDef="let aluno" class="provaFinal">
+          {{ aluno.pf }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="media">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Média
+        </mat-header-cell>
+        <mat-cell *matCellDef="let aluno" class="media">
+          {{ aluno.media }}
+        </mat-cell>
+      </ng-container>
+  
+
+  
+    <ng-container matColumnDef="operacao">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+        Simular
+      </mat-header-cell>
+      <mat-cell *matHeaderCellDef="let aluno">
+        <button mat-raised-button>
+          Simular
+        </button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: colunas"></mat-row>
+  </mat-table>
+  

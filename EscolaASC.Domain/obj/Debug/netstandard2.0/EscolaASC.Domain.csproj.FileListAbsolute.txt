@@ -1,9 +1,0 @@
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\bin\Debug\netstandard2.0\EscolaASC.Domain.deps.json
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\bin\Debug\netstandard2.0\EscolaASC.Domain.dll
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\bin\Debug\netstandard2.0\EscolaASC.Domain.pdb
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\obj\Debug\netstandard2.0\EscolaASC.Domain.csprojAssemblyReference.cache
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\obj\Debug\netstandard2.0\EscolaASC.Domain.csproj.CoreCompileInputs.cache
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\obj\Debug\netstandard2.0\EscolaASC.Domain.AssemblyInfoInputs.cache
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\obj\Debug\netstandard2.0\EscolaASC.Domain.AssemblyInfo.cs
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\obj\Debug\netstandard2.0\EscolaASC.Domain.dll
-C:\Users\danie\Desktop\ASC TESTE\EscolaASC.Domain\obj\Debug\netstandard2.0\EscolaASC.Domain.pdb

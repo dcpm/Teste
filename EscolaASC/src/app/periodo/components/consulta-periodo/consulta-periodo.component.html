@@ -1,0 +1,49 @@
+
+<h2>Turmas</h2>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="NomeTurma">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      Turma
+    </mat-header-cell>
+    <mat-cell *matCellDef="let turma" class="nome-turma">
+      {{ turma.nomeTurma }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="QuantidadeAluno">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      Quantidade de alunos
+    </mat-header-cell>
+    <mat-cell *matCellDef="let turma" class="alunos-turma">
+      {{ turma.QuantidadeAluno }}
+    </mat-cell>
+  </ng-container>
+
+<ng-container matColumnDef="Materia">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      Matérias
+    </mat-header-cell>
+    <mat-cell *matCellDef="let turma" class="materias-turma">
+      {{ turma.Materia }}
+    </mat-cell>
+  </ng-container>
+  
+  
+  <ng-container matColumnDef="operacao">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      Consultar Turma
+    </mat-header-cell>
+    <mat-cell *matCellDef="let turma" class="consulta-turma">
+      <button mat-raised-button >
+        <a routerLink="/consulta-turmas">
+          Turma
+      </a>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  
+
+  <mat-header-row *matHeaderRowDef="colunasTurma"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: colunasTurma"></mat-row>
+</mat-table>
